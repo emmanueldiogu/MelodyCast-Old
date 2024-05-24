@@ -12,9 +12,9 @@
 
 - AISHA ABUBAKAR LADAN [![GitHub](./icons/github.png)](https://github.com/Lolis007) [![LinkedIn](./icons/linkedin.png)]() [![Google](./icons/google.png)]()
 
-- EMMANUEL DIOGU [![GitHub](./icons/github.png)](https://github.com/emmanueldiogu) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/) [![Google](./icons/google.png)](mailto:emmanueldiogu@gmail.com)
+- EMMANUEL DIOGU [![GitHub](./icons/github.png)](https://github.com/emmanueldiogu) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/emmanueldiogu/) [![Google](./icons/google.png)](mailto:emmanueldiogu@gmail.com)
 
-- DINH VINH PHUOC VAN [![GitHub](./icons/github.png)](https://www.behance.net/josephvn) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/emmanueldiogu/) [![Google](./icons/google.png)](mailto:joevan0205@gmail.com)
+- DINH VINH PHUOC VAN [![GitHub](./icons/github.png)](https://www.behance.net/josephvn) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/) [![Google](./icons/google.png)](mailto:joevan0205@gmail.com)
 
 <h3 align="center">May 2024</h3>
 
