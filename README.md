@@ -90,7 +90,7 @@ curl -X GET \\
 
 ### **Image API (**[**Pexels API**](https://www.pexels.com/api/)**):**
 
-The Pexels API provides developers with a rich media collection for their applications or websites. The Pexels API is hosted on the [**Pexels API website**](https://www.pexels.com/api/) and was founded in **2014** by twin brothers **Bruno and Ingo Joseph** and Daniel Frese who joined in 2015 (Pexels, 2023). The entire Pexels platform is a collaborative effort by photographers, curators, and developers.
+The Pexels API provides developers with a rich media collection for their applications or websites. The Pexels API is hosted on the [**Pexels API website**](https://www.pexels.com/api/) and was founded in **2014** by twin brothers **Bruno and Ingo Joseph** and **Daniel Frese** who joined in 2015 (Pexels, 2023). The entire Pexels platform is a collaborative effort by photographers, curators, and developers.
 
 #### **Project Implementation:**
 
@@ -102,27 +102,27 @@ curl -H "Authorization:${API_KEY}" \\
 ```
 
 ```json
-{  
-"id": 531767,  
-"width": 6395,  
-"height": 4266,  
-"url": "<https://www.pexels.com/photo/white-clouds-531767/>",  
-"photographer": "Pixabay",  
-"photographer_url": "<https://www.pexels.com/@pixabay>",  
-"photographer_id": 2659,  
-"avg_color": "#80ABCD",  
-"src": {  
-"original": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg>",  
-"large2x": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026dpr=2\\u0026h=650\\u0026w=940>",  
-"large": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=650\\u0026w=940>",  
-"medium": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=350>",  
-"small": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=130>",  
-"portrait": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026fit=crop\\u0026h=1200\\u0026w=800>",  
-"landscape": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026fit=crop\\u0026h=627\\u0026w=1200>",  
-"tiny": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026dpr=1\\u0026fit=crop\\u0026h=200\\u0026w=280>"  
-},  
-"liked": false,  
-"alt": "White Clouds"  
+{
+    "id": 531767,
+    "width": 6395,
+    "height": 4266,
+    "url": "<https://www.pexels.com/photo/white-clouds-531767/>",
+    "photographer": "Pixabay",
+    "photographer_url": "<https://www.pexels.com/@pixabay>",
+    "photographer_id": 2659,
+    "avg_color": "#80ABCD",
+    "src": {
+        "original": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg>",
+        "large2x": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026dpr=2\\u0026h=650\\u0026w=940>",
+        "large": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=650\\u0026w=940>",
+        "medium": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=350>",
+        "small": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026h=130>",
+        "portrait": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026fit=crop\\u0026h=1200\\u0026w=800>",
+        "landscape": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026fit=crop\\u0026h=627\\u0026w=1200>",
+        "tiny": "<https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress\\u0026cs=tinysrgb\\u0026dpr=1\\u0026fit=crop\\u0026h=200\\u0026w=280>"
+    },
+    "liked": false,
+    "alt": "White Clouds"
 }
 ```
 
@@ -134,43 +134,47 @@ The Search API allows you to place search fields on your website to search for c
 
 In the Curl code snippet below, we use the Search API with the weather condition obtained from the OpenWeather response to search for music corresponding to the current weather. We also add a limit to limit the result to 15 songs per page. Note: iTunes requires users to be authenticated but since we don’t want to delve into authentication for this project, we are using Heroku App CORS Anywhere which you can find at this [link](https://cors-anywhere.herokuapp.com/corsdemo).
 
+```bash
 curl -X GET \\  
 "<https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search>? \\  
 term=${openWeather.weather.description}&media=musicVideo&limit=15" \\  
 \-H "X-Requested-With: XMLHttpRequest"
+```
 
-{  
-"wrapperType": "track",  
-"kind": "song",  
-"artistId": 909253,  
-"collectionId": 120954021,  
-"trackId": 120954025,  
-"artistName": "Jack Johnson",  
-"collectionName": "Sing-a-Longs and Lullabies for the Film Curious George",  
-"trackName": "Upside Down",  
-"collectionCensoredName": "Sing-a-Longs and Lullabies for the Film Curious George",  
-"trackCensoredName": "Upside Down",  
-"artistViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewArtist?id=909253>",  
-"collectionViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?i=120954025&id=120954021&s=143441>",  
-"trackViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?i=120954025&id=120954021&s=143441>",  
-"previewUrl": "<http://a1099.itunes.apple.com/r10/Music/f9/54/43/mzi.gqvqlvcq.aac.p.m4p>",  
-"artworkUrl60": "<http://a1.itunes.apple.com/r10/Music/3b/6a/33/mzi.qzdqwsel.60x60-50.jpg>",  
-"artworkUrl100": "<http://a1.itunes.apple.com/r10/Music/3b/6a/33/mzi.qzdqwsel.100x100-75.jpg>",  
-"collectionPrice": 10.99,  
-"trackPrice": 0.99,  
-"collectionExplicitness": "notExplicit",  
-"trackExplicitness": "notExplicit",  
-"discCount": 1,  
-"discNumber": 1,  
-"trackCount": 14,  
-"trackNumber": 1,  
-"trackTimeMillis": 210743,  
-"country": "USA",  
-"currency": "USD",  
-"primaryGenreName": "Rock"  
-}  
+```json
+{
+    "wrapperType": "track",
+    "kind": "song",
+    "artistId": 909253,
+    "collectionId": 120954021,
+    "trackId": 120954025,
+    "artistName": "Jack Johnson",
+    "collectionName": "Sing-a-Longs and Lullabies for the Film Curious George",
+    "trackName": "Upside Down",
+    "collectionCensoredName": "Sing-a-Longs and Lullabies for the Film Curious George",
+    "trackCensoredName": "Upside Down",
+    "artistViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewArtist?id=909253>",
+    "collectionViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?i=120954025&id=120954021&s=143441>",
+    "trackViewUrl": "<https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewAlbum?i=120954025&id=120954021&s=143441>",
+    "previewUrl": "<http://a1099.itunes.apple.com/r10/Music/f9/54/43/mzi.gqvqlvcq.aac.p.m4p>",
+    "artworkUrl60": "<http://a1.itunes.apple.com/r10/Music/3b/6a/33/mzi.qzdqwsel.60x60-50.jpg>",
+    "artworkUrl100": "<http://a1.itunes.apple.com/r10/Music/3b/6a/33/mzi.qzdqwsel.100x100-75.jpg>",
+    "collectionPrice": 10.99,
+    "trackPrice": 0.99,
+    "collectionExplicitness": "notExplicit",
+    "trackExplicitness": "notExplicit",
+    "discCount": 1,
+    "discNumber": 1,
+    "trackCount": 14,
+    "trackNumber": 1,
+    "trackTimeMillis": 210743,
+    "country": "USA",
+    "currency": "USD",
+    "primaryGenreName": "Rock"
+}
+```  
 
-# **References**
+## **References**
 
 Apple. (2024, May 23). _iTunes Search API_. Apple Services Performance Partners. Retrieved May 23, 2024, from <https://performance-partners.apple.com/search-api>
 
