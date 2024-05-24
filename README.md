@@ -14,7 +14,7 @@
 
 - EMMANUEL DIOGU [![GitHub](./icons/github.png)](https://github.com/emmanueldiogu) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/emmanueldiogu/) [![Google](./icons/google.png)](mailto:emmanueldiogu@gmail.com)
 
-- DINH VINH PHUOC VAN [![GitHub](./icons/github.png)](https://www.behance.net/josephvn) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/) [![Google](./icons/google.png)](mailto:joevan0205@gmail.com)
+- DINH VINH PHUOC VAN [![GitHub](./icons/github.png)](https://github.com/vandinh52) [![Behance](https://img.shields.io/badge/Behance-0054F7?logo=behance&logoColor=white)](https://www.behance.net/josephvn) [![Google](./icons/google.png)](mailto:joevan0205@gmail.com)
 
 <h3 align="center">May 2024</h3>
 
