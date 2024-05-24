@@ -1,8 +1,8 @@
 # **WDDM121- An API Project**
 
-![Website screenshot](./screenshot.png "Website screenshot")
+![Website screenshot](./for-markdown/screenshot.png "Website screenshot")
 
-<h1 align="center"><img src="./logo.png" alt="MELODYCAST"/></h1>
+<h1 align="center"><img src="./for-markdown/logo.png" alt="MELODYCAST"/></h1>
 
 <p align="center">By</p>
 
@@ -10,11 +10,11 @@
 
 ## Authors
 
-- AISHA ABUBAKAR LADAN [![GitHub](./icons/github.png)](https://github.com/Lolis007) [![LinkedIn](./icons/linkedin.png)]() [![Google](./icons/google.png)]()
+- AISHA ABUBAKAR LADAN [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/Lolis007) [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)]() [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)]()
 
-- EMMANUEL DIOGU [![GitHub](./icons/github.png)](https://github.com/emmanueldiogu) [![LinkedIn](./icons/linkedin.png)](https://www.linkedin.com/in/emmanueldiogu/) [![Google](./icons/google.png)](mailto:emmanueldiogu@gmail.com)
+- EMMANUEL DIOGU [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/emmanueldiogu) [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emmanueldiogu/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:emmanueldiogu@gmail.com)
 
-- DINH VINH PHUOC VAN [![GitHub](./icons/github.png)](https://github.com/vandinh52) [![Behance](https://img.shields.io/badge/Behance-0054F7?logo=behance&logoColor=white)](https://www.behance.net/josephvn) [![Google](./icons/google.png)](mailto:joevan0205@gmail.com)
+- DINH VINH PHUOC VAN [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/vandinh52) [![Behance](https://img.shields.io/badge/Behance-0054F7?logo=behance&logoColor=white)](https://www.behance.net/josephvn) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:joevan0205@gmail.com)
 
 <h3 align="center">May 2024</h3>
 
@@ -42,6 +42,6 @@ The Search API allows you to place search fields on your website to search for c
 
 ## **DOCUMENTS AND LINKS**
 
-- [Research Paper](./API%20Research%20Paper.pdf)
+- [Research Paper](./for-markdown/API%20Research%20Paper.pdf)
 - [Figma Design](https://www.figma.com/design/13ly9mi751NQF0CByYH5GT/Weather-Website?node-id=19-4333&t=gOCuqdf6qTIFvVZd-0)
 - [Webpage]()
