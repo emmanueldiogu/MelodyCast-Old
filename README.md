@@ -10,7 +10,7 @@
 
 ## Authors
 
-- AISHA ABUBAKAR LADAN [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/Lolis007) [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)]() [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)]()
+- AISHA ABUBAKAR LADAN [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/Lolis007) [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aisha-ladan/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:ayee.abubkr@gmail.com)
 
 - EMMANUEL DIOGU [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/emmanueldiogu) [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emmanueldiogu/) [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:emmanueldiogu@gmail.com)
 
