@@ -45,3 +45,22 @@ The Search API allows you to place search fields on your website to search for c
 - [Research Paper](./for-markdown/API%20Research%20Paper.pdf)
 - [Figma Design](https://www.figma.com/design/13ly9mi751NQF0CByYH5GT/Weather-Website?node-id=19-4333&t=gOCuqdf6qTIFvVZd-0)
 - [Webpage]()
+
+
+## Code setup
+
+- The code is setup using [Vite](https://vitejs.dev/)
+- Run `npm install` then `npm run dev` to test the dev server
+- Use the `npm run build` to build the project
+
+## Tools and Articles
+
+- We use [Fluid Typography Calculator](https://royalfig.github.io/fluid-typography-calculator/)
+- Minify/Optimism images [Tiny PNG](https://tinypng.com)
+- Responsive images (High-DPI images & art direction use case) by [Dev Opera - Andreas Bovens](https://dev.opera.com/articles/responsive-images/)
+
+
+## React Tools
+
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Router](https://reactrouter.com/en/main)
