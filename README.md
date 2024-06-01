@@ -1,8 +1,8 @@
 # **WDDM121- An API Project**
 
-![Website screenshot](./for-markdown/screenshot.png "Website screenshot")
+![Website screenshot](./public/screenshot.png "Website screenshot")
 
-<h1 align="center"><img src="./for-markdown/logo.png" alt="MELODYCAST"/></h1>
+<h1 align="center"><img src="./src/assets/melodycast.svg" alt="MELODYCAST"/></h1>
 
 <p align="center">By</p>
 
@@ -42,7 +42,7 @@ The Search API allows you to place search fields on your website to search for c
 
 ## **DOCUMENTS AND LINKS**
 
-- [Research Paper](./for-markdown/API%20Research%20Paper.pdf)
+- [Research Paper](./src/assets/API%20Research%20Paper.pdf)
 - [Figma Design](https://www.figma.com/design/13ly9mi751NQF0CByYH5GT/Weather-Website?node-id=19-4333&t=gOCuqdf6qTIFvVZd-0)
 - [Webpage]()
 
