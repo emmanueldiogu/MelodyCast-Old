@@ -7,7 +7,7 @@ import Search from './Search';
 const TopBar = props => {
     return (
         <header>
-            <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='container mx-auto px-4 sm:px-6 lg:px-8 mb-10'>
                 <div className='flex h-24 items-center justify-between'>
                     <div className="w-[25%] flex items-center">
                         <a href="#" className="brand block">
