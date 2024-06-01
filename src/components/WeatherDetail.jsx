@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const WeatherDetail = props => {
     return (
-        <div>WeatherDetail</div>
+        <section>WeatherDetail</section>
     )
 }
 

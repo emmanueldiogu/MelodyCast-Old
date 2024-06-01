@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Layout from "./components/Layout";
 import Weather from "./pages/Weather";
 import Location from "./pages/Location";
@@ -8,7 +8,6 @@ import Account from "./pages/Account";
 
 
 export default function App() {
-  // const currentPath = useLocation().pathname;
   return (
     <Layout>
       {/* {currentPath !== '/user' && <Navbar />} */}
