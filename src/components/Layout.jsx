@@ -10,13 +10,16 @@ import backgroundImage from './../assets/bg-image.jpg';
 const Layout = ({ children }) => {
     const currentPath = useLocation().pathname;
     return (
-        <div className='min-h-dvh h-full' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
-            <TopBar />
-            <WeatherDetail />
-            <Content>
-                {currentPath !== '/account' && <Menu />}
-                {children}
-            </Content>
+        <div className='min-h-dvh h-full relative' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
+            <div className=' absolute top-0 right-0 bottom-0 left-0 bg-black/20'></div>
+            <div className="relative">
+                <TopBar />
+                <WeatherDetail />
+                <Content>
+                    {currentPath !== '/account' && <Menu />}
+                    {children}
+                </Content>
+            </div>
         </div>
     )
 };

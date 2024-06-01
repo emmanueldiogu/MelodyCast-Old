@@ -18,7 +18,7 @@ const TopBar = props => {
                     <div className="grow">
                         <Search />
                     </div>
-                    <div className="w-[25%] flex justify-end items-center">
+                    <div className="w-[25%] flex md:justify-end items-center">
                         <button>
                             <img src={User} alt="User image" className=' w-14' />
                         </button>
