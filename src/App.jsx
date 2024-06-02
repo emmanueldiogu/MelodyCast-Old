@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom"
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Weather from "./pages/Weather";
 import Location from "./pages/Location";

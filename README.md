@@ -57,6 +57,7 @@ The Search API allows you to place search fields on your website to search for c
 
 - We use [Fluid Typography Calculator](https://royalfig.github.io/fluid-typography-calculator/)
 - Minify/Optimism images [Tiny PNG](https://tinypng.com)
+- Minify/Optimism svg [SVG OMG](https://svgomg.net/)
 - Responsive images (High-DPI images & art direction use case) by [Dev Opera - Andreas Bovens](https://dev.opera.com/articles/responsive-images/)
 
 
