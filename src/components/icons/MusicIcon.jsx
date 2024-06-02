@@ -24,8 +24,8 @@ MusicIcon.propTypes = {
 };
 
 MusicIcon.defaultProps = {
-    width: '45', // Default width
-    height: '44', // Default height
+    width: '37.07', // Default width
+    height: '42', // Default height
     className: '', // Default class
 };
 

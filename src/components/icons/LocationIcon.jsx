@@ -24,8 +24,8 @@ LocationIcon.propTypes = {
 };
 
 LocationIcon.defaultProps = {
-    width: '45', // Default width
-    height: '44', // Default height
+    width: '31', // Default width
+    height: '43', // Default height
     className: '', // Default class
 };
 

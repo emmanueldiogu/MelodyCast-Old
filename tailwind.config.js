@@ -12,6 +12,12 @@ export default {
       },
       colors: {
         'main': '#FA9E42',
+      },
+      boxShadow: {
+        'glass': '16px 16px 40px 0px rgba(0, 0, 0, 0.25)',
+      },
+      lineHeight: {
+        'full': '100%',
       }
     }
   },
