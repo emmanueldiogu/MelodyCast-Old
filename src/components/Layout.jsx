@@ -18,12 +18,12 @@ const Layout = ({ children }) => {
       }}
     >
       <div className="absolute top-0 right-0 bottom-0 left-0 bg-black/20"></div>
-      <div className="relative flex flex-col w-full">
+      <div className="relative flex flex-col w-full pt-3">
         <TopBar />
         {currentPath !== "/account" && <WeatherDetail />}
         <Content>
           {currentPath !== "/account" && <Menu />}
-          <div className="overflow-y-auto flex-grow">{children}</div>
+          {children}
         </Content>
       </div>
     </div>

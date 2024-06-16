@@ -12,19 +12,19 @@ import Wind from "../assets/icons/wind.svg";
 
 const Weather = (props) => {
   return (
-    <section className="flex flex-col justify-between gap-8">
+    <section className="flex flex-col justify-between gap-x-8">
       <div className="flex gap-8 max-md:flex-wrap">
         <ElevatedBox className={"flex-col justify-center items-center"}>
-          <div className="flex flex-col gap-4 justify-center">
+          <div className="flex flex-col gap-3 justify-center">
             <div className="flex gap-[11px] justify-center">
               <img
                 loading="lazy"
                 src={SunRise}
-                className="shrink-0 my-auto aspect-square"
+                className="shrink-0 my-auto aspect-square max-w-5"
               />
               <div className="flex flex-col">
-                <div className="text-sm font-light leading-full">Sunrise</div>
-                <div className="font-semibold leading-normal lg:text-nowrap">
+                <div className="text-xs font-light leading-full">Sunrise</div>
+                <div className="font-semibold text-sm leading-normal lg:text-nowrap">
                   05:30 AM
                 </div>
               </div>
@@ -33,11 +33,11 @@ const Weather = (props) => {
               <img
                 loading="lazy"
                 src={SunSet}
-                className="shrink-0 my-auto aspect-square"
+                className="shrink-0 my-auto aspect-square max-w-5"
               />
               <div className="flex flex-col">
-                <div className="text-sm font-light leading-full">Sunset</div>
-                <div className="font-semibold leading-normal lg:text-nowrap">
+                <div className="text-xs font-light leading-full">Sunset</div>
+                <div className="font-semibold text-sm leading-normal lg:text-nowrap">
                   09:00 PM
                 </div>
               </div>
@@ -52,25 +52,25 @@ const Weather = (props) => {
               className="object-cover absolute inset-0 aspect-square size-full"
             />
             <div className="flex relative flex-col justify-center">
-              <div className="text-2xl text-center">20</div>
+              <div className="text-clamp-20 text-center">20</div>
               <div className="text-xs font-light">km/hr</div>
             </div>
           </div>
         </ElevatedBox>
         <ElevatedBox className={"flex-col justify-center items-center"}>
           <div className="flex flex-col gap-2">
-            <div className="flex gap-1 items-center justify-center text-white">
+            <div className="flex gap-x-1 items-center justify-center text-white">
               <img
                 loading="lazy"
                 src={UVIndex}
-                className="shrink-0 aspect-square"
+                className="shrink-0 aspect-square max-w-5"
               />
-              <div className="text-sm font-light leading-full lg:text-nowrap">
+              <div className="text-xs font-light leading-full lg:text-nowrap">
                 UV Index
               </div>
             </div>
             <div className="flex flex-col justify-center self-center text-white whitespace-nowrap">
-              <div className="self-center text-2xl leading-7 text-center">
+              <div className="self-center text-clamp-20 leading-7 text-center">
                 5
               </div>
               <div className="text-sm font-semibold">Moderate</div>
@@ -105,14 +105,14 @@ const Weather = (props) => {
               <img
                 loading="lazy"
                 src={AirQuality}
-                className="shrink-0 aspect-square"
+                className="shrink-0 aspect-square max-w-5"
               />
-              <div className="text-sm font-light leading-full lg:text-nowrap">
+              <div className="text-xs font-light leading-full lg:text-nowrap">
                 Air Quality
               </div>
             </div>
             <div className="flex flex-col justify-center self-center text-white whitespace-nowrap">
-              <div className="self-center text-2xl leading-7 text-center">
+              <div className="self-center text-clamp-20 leading-7 text-center">
                 40
               </div>
               <div className="text-sm font-semibold">Good</div>
@@ -152,7 +152,7 @@ const Weather = (props) => {
             />
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Feels like</div>
-              <div className=" align-bottom font-bebas font-normal text-[32px] leading-full whitespace-nowrap">
+              <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
                 18°C
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
@@ -168,7 +168,7 @@ const Weather = (props) => {
             />
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Humidity</div>
-              <div className=" align-bottom font-bebas font-normal text-[32px] leading-full whitespace-nowrap">
+              <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
                 40%
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
@@ -184,11 +184,11 @@ const Weather = (props) => {
             />
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Pressure</div>
-              <div className="flex flex-1 gap-1">
-                <div className="align-bottom font-bebas font-normal text-[32px] leading-full whitespace-nowrap">
+              <div className="flex flex-1">
+                <div className="align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
                   1025
                 </div>
-                <div className="self-end text-xs font-light leading-full">
+                <div className="self-end text-[8px] font-light leading-full">
                   HPA
                 </div>
               </div>
@@ -200,13 +200,13 @@ const Weather = (props) => {
         </ElevatedBox>
       </div>
       <div>
-        <div className="flex flex-col justify-between p-5 mt-7 shadow-glass backdrop-blur-md bg-black/40 rounded-[40px] max-md:max-w-full">
+        <div className="flex flex-col justify-between p-5 mt-6 shadow-glass backdrop-blur-md bg-black/40 rounded-[40px] max-md:max-w-full">
           <div className="flex gap-0 justify-center text-base font-semibold text-white whitespace-nowrap max-md:flex-wrap max-md:max-w-full">
             <div className="flex flex-col flex-1 justify-center p-1.5 max-md:max-w-full">
-              <div className="self-center">Hourly</div>
+              <div className="self-center text-xs lg:text-sm">Hourly</div>
               <div className="shrink-0 mt-1.5 h-px bg-white border border-white border-solid max-md:max-w-full" />
             </div>
-            <div className="flex-1 justify-center items-center p-1.5 max-md:px-5 max-md:max-w-full">
+            <div className="flex-1 justify-center items-center p-1.5 max-md:px-5 max-md:max-w-full text-xs lg:text-sm">
               Weekly
             </div>
           </div>
