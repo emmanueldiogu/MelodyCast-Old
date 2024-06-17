@@ -27,6 +27,9 @@ export default {
         'clamp-20': 'clamp(1.25rem, 0.6909090909090909rem + 1.090909090909091vw, 2rem)',
         'clamp-54': 'clamp(3.375rem, 1.418181818181818rem + 3.8181818181818183vw, 6rem)',
         'clamp-day': 'clamp(0.9375rem, 0.1972222222222223rem + 1.4444444444444444vw, 1.75rem)',
+      },
+      screens: {
+        'xxl': '1367px'
       }
     }
   },

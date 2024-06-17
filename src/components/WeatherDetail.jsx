@@ -8,7 +8,7 @@ const WeatherDetail = (props) => {
     <section>
       <div className="flex items-center justify-between">
         <div className="flex flex-col">
-          <h2 className="city font-medium text-clamp-h2 text-white flex items-center gap-1 mb-5 2xl:mb-12">
+          <h2 className="city font-medium text-clamp-h2 text-white flex items-center gap-1 mb-5 xxl:mb-12">
             <FaLocationDot size={16} /> <span>Toronto</span>
           </h2>
           <div className="details flex items-center">

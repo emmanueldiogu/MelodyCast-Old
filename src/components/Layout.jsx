@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
     >
       <div className="absolute top-0 right-0 bottom-0 left-0 bg-black/20"></div>
       <div className="container mx-auto">
-        <div className="relative grid grid-cols-1 gap-6 2xl:gap-8 py-3 2xl:py-5 grid-rows-[auto_auto_1fr]">
+        <div className="relative grid grid-cols-1 gap-6 xxl:gap-8 py-3 xxl:py-5 grid-rows-[auto_auto_1fr]">
           <TopBar />
           {currentPath !== "/account" && <WeatherDetail />}
           <Content>
