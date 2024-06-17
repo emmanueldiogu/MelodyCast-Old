@@ -9,7 +9,7 @@ import SettingsIcon from "./icons/SettingsIcon";
 const Menu = (props) => {
   return (
     <aside className="hidden md:flex md:col-span-1 h-full">
-      <nav className="flex flex-col gap-y-6 2xl:gap-y-9 items-center justify-between rounded-full py-7 2xl:py-12 px-2 bg-black/20 shadow-glass backdrop-blur-md h-fit">
+      <nav className="flex flex-col gap-y-6 2xl:gap-y-9 items-center justify-between rounded-full py-7 2xl:py-12 px-2 bg-white/20 shadow-glass backdrop-blur-md h-fit">
         <NavLink
           to="/"
           className={({ isActive }) =>
