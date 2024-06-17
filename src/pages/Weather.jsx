@@ -12,9 +12,9 @@ import Wind from "../assets/icons/wind.svg";
 
 const Weather = (props) => {
   return (
-    <section className="flex flex-col justify-between gap-x-8">
-      <div className="flex gap-8 max-md:flex-wrap">
-        <ElevatedBox className={"flex-col justify-center items-center"}>
+    <main className="md:col-span-11 grid grid-rows-[auto_auto] justify-stretch gap-[22.5px] 2xl:gap-8">
+      <div className="grid grid-flow-col grid-cols-6 gap-8 items-center">
+        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
           <div className="flex flex-col gap-3 justify-center">
             <div className="flex gap-[11px] justify-center">
               <img
@@ -23,8 +23,10 @@ const Weather = (props) => {
                 className="shrink-0 my-auto aspect-square max-w-5"
               />
               <div className="flex flex-col">
-                <div className="text-xs font-light leading-full">Sunrise</div>
-                <div className="font-semibold text-sm leading-normal lg:text-nowrap">
+                <div className="text-xs 2xl:text-sm font-light leading-full">
+                  Sunrise
+                </div>
+                <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
                   05:30 AM
                 </div>
               </div>
@@ -36,36 +38,42 @@ const Weather = (props) => {
                 className="shrink-0 my-auto aspect-square max-w-5"
               />
               <div className="flex flex-col">
-                <div className="text-xs font-light leading-full">Sunset</div>
-                <div className="font-semibold text-sm leading-normal lg:text-nowrap">
+                <div className="text-xs 2xl:text-sm font-light leading-full">
+                  Sunset
+                </div>
+                <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
                   09:00 PM
                 </div>
               </div>
             </div>
           </div>
         </ElevatedBox>
-        <ElevatedBox className={"flex-col justify-center items-center"}>
-          <div className="flex overflow-hidden relative flex-col justify-center px-8 py-6 aspect-square max-md:px-5">
-            <img
-              loading="lazy"
-              src={Wind}
-              className="object-cover absolute inset-0 aspect-square size-full"
-            />
-            <div className="flex relative flex-col justify-center">
-              <div className="text-clamp-20 text-center">20</div>
-              <div className="text-xs font-light">km/hr</div>
+        <ElevatedBox
+          className={
+            "col-span-1 flex-col relative justify-center p-6 aspect-square"
+          }
+        >
+          <img
+            loading="lazy"
+            src={Wind}
+            className="absolute inset-0 w-full h-auto p-6 max-w-none"
+          />
+          <div className="flex flex-col justify-center">
+            <div className="text-clamp-20 text-center">20</div>
+            <div className="text-xs 2xl:text-sm text-center font-light">
+              km/hr
             </div>
           </div>
         </ElevatedBox>
-        <ElevatedBox className={"flex-col justify-center items-center"}>
+        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
           <div className="flex flex-col gap-2">
             <div className="flex gap-x-1 items-center justify-center text-white">
               <img
                 loading="lazy"
                 src={UVIndex}
-                className="shrink-0 aspect-square max-w-5"
+                className="shrink-0 aspect-square max-w-5 2xl:max-w-6"
               />
-              <div className="text-xs font-light leading-full lg:text-nowrap">
+              <div className="text-xs 2xl:text-sm font-light leading-full lg:text-nowrap">
                 UV Index
               </div>
             </div>
@@ -73,7 +81,9 @@ const Weather = (props) => {
               <div className="self-center text-clamp-20 leading-7 text-center">
                 5
               </div>
-              <div className="text-sm font-semibold">Moderate</div>
+              <div className="text-sm 2xl:text-base font-semibold">
+                Moderate
+              </div>
             </div>
             <div className="flex flex-col justify-center">
               <div>
@@ -89,7 +99,7 @@ const Weather = (props) => {
                 >
                   <span
                     className="block h-1 rounded-full bg-[repeating-linear-gradient(45deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_20px,_var(--tw-gradient-to)_20px,_var(--tw-gradient-to)_40px)] from-indigo-400 to-indigo-500"
-                    style={{ width: "75%" }}
+                    style={{ width: "50%" }}
                   ></span>
                 </span>
               </div>
@@ -99,15 +109,15 @@ const Weather = (props) => {
             </div>
           </div>
         </ElevatedBox>
-        <ElevatedBox className={"flex-col justify-center items-center"}>
+        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
           <div className="flex flex-col gap-2">
             <div className="flex gap-1 items-center justify-center text-white">
               <img
                 loading="lazy"
                 src={AirQuality}
-                className="shrink-0 aspect-square max-w-5"
+                className="shrink-0 aspect-square max-w-5 2xl:max-w-6"
               />
-              <div className="text-xs font-light leading-full lg:text-nowrap">
+              <div className="text-xs 2xl:text-sm font-light leading-full lg:text-nowrap">
                 Air Quality
               </div>
             </div>
@@ -115,7 +125,7 @@ const Weather = (props) => {
               <div className="self-center text-clamp-20 leading-7 text-center">
                 40
               </div>
-              <div className="text-sm font-semibold">Good</div>
+              <div className="text-sm 2xl:text-base font-semibold">Good</div>
             </div>
             <div className="flex flex-col justify-center">
               <div>
@@ -142,7 +152,9 @@ const Weather = (props) => {
           </div>
         </ElevatedBox>
         <ElevatedBox
-          className={"flex-row flex-grow justify-between items-center"}
+          className={
+            "col-span-2 flex-row justify-between items-center h-fit p-6"
+          }
         >
           <div className="flex gap-2 font-light leading-full">
             <img
@@ -199,8 +211,8 @@ const Weather = (props) => {
           </div>
         </ElevatedBox>
       </div>
-      <div>
-        <div className="flex flex-col justify-between p-5 mt-6 shadow-glass backdrop-blur-md bg-black/40 rounded-[40px] max-md:max-w-full">
+      <div className="h-fit">
+        <div className="flex flex-col justify-between p-5 shadow-glass backdrop-blur-md bg-black/40 rounded-[40px] max-md:max-w-full">
           <div className="flex gap-0 justify-center text-base font-semibold text-white whitespace-nowrap max-md:flex-wrap max-md:max-w-full">
             <div className="flex flex-col flex-1 justify-center p-1.5 max-md:max-w-full">
               <div className="self-center text-xs lg:text-sm">Hourly</div>
@@ -314,7 +326,7 @@ const Weather = (props) => {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

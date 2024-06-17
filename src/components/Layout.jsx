@@ -11,20 +11,22 @@ const Layout = ({ children }) => {
   const currentPath = useLocation().pathname;
   return (
     <div
-      className="min-h-dvh relative"
+      className="h-screen overflow-hidden relative"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
       }}
     >
       <div className="absolute top-0 right-0 bottom-0 left-0 bg-black/20"></div>
-      <div className="relative flex flex-col w-full pt-3">
-        <TopBar />
-        {currentPath !== "/account" && <WeatherDetail />}
-        <Content>
-          {currentPath !== "/account" && <Menu />}
-          {children}
-        </Content>
+      <div className="container mx-auto">
+        <div className="relative grid grid-cols-1 gap-6 2xl:gap-8 py-3 2xl:py-5 grid-rows-[auto_auto_1fr]">
+          <TopBar />
+          {currentPath !== "/account" && <WeatherDetail />}
+          <Content>
+            {currentPath !== "/account" && <Menu />}
+            {children}
+          </Content>
+        </div>
       </div>
     </div>
   );
