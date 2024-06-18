@@ -7,7 +7,7 @@ const Account = (props) => {
     <>
       <div className="md:col-span-8 flex flex-col gap-[22.5px] 2xl:gap-8">
         <div className="text-clamp-20 font-medium text-white max-md:max-w-full h-fit">
-          for Cloudy Days
+          Saved Playlist
         </div>
         <div className="grid grid-cols-4 gap-4 2xl:gap-6 overflow-y-auto">
           <div className="flex flex-col">
@@ -180,8 +180,15 @@ const Account = (props) => {
             by our app, please report them using the form below:
           </div>
         </div>
-        <div className="flex gap-2.5 mt-1">
-          <div className="font-semibold text-s">Location</div>
+        <div className="flex gap-2.5 mt-1 px-2">
+          <div className="font-semibold text-sm">Location</div>
+          <div className="flex-1 relative gap-2.5 mt-1">
+            <input
+              type="text"
+              placeholder="Choose your location"
+              className="bg-black/20 border-0  font-light text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full ps-14 border-gray-600 placeholder-gray-400 shadow-lg mt-3 flex-1 p-2.5  "
+            />
+          </div>
         </div>
       </ElevatedBox>
     </>
