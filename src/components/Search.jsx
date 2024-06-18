@@ -1,31 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
-import LoadingOverlay from "../utils/LoadingOverlay";
 
-const Search = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const Search = ({ getSearchResult }) => {
   // const [errorMessage, setErrorMessage] = useState('');
-
-  const submitSearch = (queryString) => {
-    if (!(queryString.length > 2))
-      return alert("Must have minimum of 2 characters");
-    setIsLoading(true);
-    console.log(queryString);
-    // TODO: Simulate an API call
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // TODO: Remove this line when implementing actual API call
-  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      submitSearch(e.target.value);
+      if (!(e.target.value.length > 2))
+        return alert("Must have minimum of 3 characters");
+      getSearchResult(e.target.value);
     }
   };
 
   return (
     <>
-      {isLoading && <LoadingOverlay />}
       <label htmlFor="" className=" sr-only">
         search
       </label>
@@ -46,6 +35,10 @@ const Search = () => {
       </div>
     </>
   );
+};
+
+Search.propTypes = {
+  getSearchResult: PropTypes.func,
 };
 
 export default Search;

@@ -21,7 +21,7 @@ const TopBar = (props) => {
           </Link>
         </div>
         <div className="grow">
-          <Search />
+          <Search getSearchResult={props.getSearchResult}/>
         </div>
         <div className="flex flex-col flex-1 justify-center items-end">
           <Link to="/account">
@@ -33,6 +33,8 @@ const TopBar = (props) => {
   );
 };
 
-TopBar.propTypes = {};
+TopBar.propTypes = {
+  getSearchResult: PropTypes.func
+};
 
 export default TopBar;
