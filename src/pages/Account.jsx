@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ElevatedBox from "../components/ElevatedBox";
-import backgroundImage from "./../assets/bg-image.jpg";
 
 const Account = (props) => {
   return (
@@ -182,8 +181,8 @@ const Account = (props) => {
           </div>
         </div>
         <div className="flex gap-2.5 mt-1">
-            <div className="font-semibold text-s">Location</div>
-          </div>
+          <div className="font-semibold text-s">Location</div>
+        </div>
       </ElevatedBox>
     </>
   );

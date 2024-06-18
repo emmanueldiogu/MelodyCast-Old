@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
+import { useSearch } from "../utils/SearchProvider";
 
-const Search = ({ getSearchResult }) => {
-  // const [errorMessage, setErrorMessage] = useState('');
+const Search = () => {
+  const { getSearchResult } = useSearch();
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -35,10 +35,6 @@ const Search = ({ getSearchResult }) => {
       </div>
     </>
   );
-};
-
-Search.propTypes = {
-  getSearchResult: PropTypes.func,
 };
 
 export default Search;
