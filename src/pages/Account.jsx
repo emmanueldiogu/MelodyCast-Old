@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ElevatedBox from "../components/ElevatedBox";
-import backgroundImage from "./../assets/bg-image.jpg";
 
 const Account = (props) => {
   return (
@@ -191,7 +190,6 @@ const Account = (props) => {
             />
           </div>
         </div>
-       
       </ElevatedBox>
     </>
   );
