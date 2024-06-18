@@ -1,4 +1,3 @@
-
 const convertTimestamp = (
     unixTimeStamp,
     options = {
