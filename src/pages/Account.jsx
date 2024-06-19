@@ -172,7 +172,7 @@ const Account = (props) => {
           </div>
         </div>
       </div>
-      <ElevatedBox className="md:col-span-4 py-4 px-6 flex-col justify-between text-white">
+      <ElevatedBox className="md:col-span-4 py-4 px-6 flex-col gap-6 text-white">
         <h3 className="text-2xl font-medium leading-normal">Report Incorrect Weather</h3>
         <p className="text-sm font-light leading-normal">If you notice any inaccuracies in the weather information provided
         by our app, please report them using the form below:</p>
