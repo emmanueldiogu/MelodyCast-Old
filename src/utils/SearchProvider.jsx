@@ -2,6 +2,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -12,6 +13,10 @@ const SearchContext = createContext();
 const SearchProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [todayForecast, setTodayForecast] = useState({});
+
+  useEffect(() => {
+    submitSearch("Toronto");
+  }, []);
 
   // Function to get props from child component
   const getSearchResult = useCallback((data) => {

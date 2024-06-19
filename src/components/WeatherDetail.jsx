@@ -5,6 +5,10 @@ import { useSearch } from "../utils/SearchProvider";
 
 const WeatherDetail = () => {
   const { todayForecast } = useSearch();
+  const timestampObject = convertTimestamp(
+    todayForecast?.dt,
+    todayForecast?.timezone
+  );
   return (
     <section>
       <div className="flex items-center justify-between">
@@ -30,25 +34,9 @@ const WeatherDetail = () => {
             </div>
             <div className="flex flex-col font-normal text-clamp-day text-white leading-[120%] ml-8">
               <p>
-                {todayForecast?.dt
-                  ? convertTimestamp(todayForecast?.dt)
-                  : "today"}
+                {`${timestampObject.weekday} | ${timestampObject.day} ${timestampObject.month} ${timestampObject.year}`}
               </p>
-              <p>
-                {todayForecast?.dt
-                  ? convertTimestamp(
-                      todayForecast?.dt,
-                      {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        hour12: false,
-                      },
-                      true
-                    )
-                  : "today"}{" "}
-                (UTC{" "}
-                {todayForecast?.timezone ? todayForecast?.timezone / 3600 : 0})
-              </p>
+              <p>{`${timestampObject.time} (${timestampObject.timezone})`}</p>
             </div>
           </div>
         </div>
