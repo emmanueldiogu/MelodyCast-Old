@@ -19,13 +19,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Radiant Rhythms
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                  Lively tunes for sunny days.
                 </div>
               </div>
             </div>
@@ -39,13 +39,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Golden Grooves
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                  Upbeat melodies for sunshine.
                 </div>
               </div>
             </div>
@@ -59,13 +59,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Sunny Serenades
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                  Cheerful tunes for sunny vibes.
                 </div>
               </div>
             </div>
@@ -79,13 +79,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Sunbeam Symphony
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                 Bright music for sunny days.
                 </div>
               </div>
             </div>
@@ -99,13 +99,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Gloom Grooves
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                  Mellow tunes for gray skies.
                 </div>
               </div>
             </div>
@@ -119,13 +119,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Hazy Horizons
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                  Dreamy melodies for misty views.
                 </div>
               </div>
             </div>
@@ -139,13 +139,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Fog Harmonies
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                 Soft music in foggy weather.
                 </div>
               </div>
             </div>
@@ -159,13 +159,13 @@ const Account = (props) => {
               />
               <div className="flex flex-col mt-3">
                 <a href="#" className="font-bold text-ellipsis">
-                  Gloom Grooves
+                Chords of the Clouds
                 </a>
                 <div
                   className="mt-1 font-medium line-clamp-2"
                   title="Mellow tunes for gray skies. Mellow tunes for gray skies"
                 >
-                  Mellow tunes for gray skies. Mellow tunes for gray skies.
+                 Music soaring like clouds.
                 </div>
               </div>
             </div>
