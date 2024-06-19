@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 
   const selectRandomImage = () => {
     let index = parseInt(Math.random() * weatherImage.length);
-    return weatherImage[index].src?.landscape;
+    return weatherImage[index]?.src?.landscape;
   }
 
   return (
