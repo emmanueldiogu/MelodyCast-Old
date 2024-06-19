@@ -67,17 +67,17 @@ const SearchProvider = ({ children }) => {
 
   useEffect(() => {
     submitSearch("Toronto");
-  }, []);
+  }, [submitSearch]);
 
   // Function to get props from child component
   const getSearchResult = useCallback((data) => {
     submitSearch(data);
-  }, []);
+  }, [submitSearch]);
 
 
   const values = useMemo(
-    () => ({ isLoading, todayForecast, getSearchResult }),
-    [isLoading, todayForecast, getSearchResult]
+    () => ({ isLoading, todayForecast, getSearchResult, weatherImage }),
+    [isLoading, todayForecast, getSearchResult, weatherImage]
   );
 
   return (
