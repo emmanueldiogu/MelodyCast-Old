@@ -1,7 +1,9 @@
 import { convertTimestamp } from "../utils/convertDateTime";
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
+import { FiEdit3 } from "react-icons/fi";
 import { useSearch } from "../utils/SearchProvider";
+import profilePic from "../assets/user.png";
 
 const ProfileDetails = () => {
   const { todayForecast } = useSearch();
@@ -11,45 +13,50 @@ const ProfileDetails = () => {
   );
   return (
     <section>
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col">
-          <h2 className="city font-medium text-clamp-h2 text-white flex items-center gap-1 mb-5 xxl:mb-12">
-            <FaLocationDot size={16} />{" "}
-            <span>{todayForecast?.name ?? "City Name"}</span>
-          </h2>
-          <div className="details flex items-center">
-            <div className="flex flex-col pr-8 border-r border-white">
-              <h3 className=" text-clamp-h3 font-bold text-white leading-full capitalize">
-                {todayForecast.weather?.[0]?.description ??
-                  "Weather Description"}
-              </h3>
-              <h4 className=" font-normal text-clamp-54 leading-full text-main font-bebas">
-                <span>
-                  {isNaN(parseInt(todayForecast.main?.temp))
-                    ? "20" // Default value if NaN
-                    : parseInt(todayForecast.main?.temp).toString()}
-                </span>
-                °<span>C</span>
-              </h4>
-            </div>
-            <div className="flex flex-col font-normal text-clamp-day text-white leading-[120%] ml-8">
-              <p>
-                {`${timestampObject.weekday} | ${timestampObject.day} ${timestampObject.month} ${timestampObject.year}`}
-              </p>
-              <p>{`${timestampObject.time} (${timestampObject.timezone})`}</p>
+      <div className="grid grid-cols-12 gap-10 px-10">
+        <div className="col-span-3 aspect-square rounded-full">
+          <img src={profilePic} alt="user profile picture"  className="aspect-square rounded-full"/>
+        </div>
+        <div className="col-span-9 flex flex-col py-3 gap-y-4">
+          <div className="flex justify-between items-center text-white">
+            <h2 className="text-5xl font-bold">Rosa</h2>
+            <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm"><FiEdit3 size={24} className=""/>Change</button>
+          </div>
+          <div className="grid grid-cols-9 items-center text-white">
+            <div className="col-span-2 text-2xl font-light">Username:</div>
+            <div className="col-span-7 flex justify-between">
+              <div className="text-2xl font-bold">Rosathepig</div>
+              <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm"><FiEdit3 size={24} className=""/>Change</button>
             </div>
           </div>
-        </div>
-        <div>
-          <img
-            src={
-              todayForecast?.weather?.[0].icon
-                ? `http://openweathermap.org/img/wn/${todayForecast?.weather?.[0].icon}@4x.png`
-                : "http://openweathermap.org/img/wn/03d@4x.png"
-            }
-            alt="cloud"
-            className=" max-h-[120px] h-fit"
-          />
+          <div className="grid grid-cols-9 items-center text-white">
+            <div className="col-span-2 text-2xl font-light">Email Address:</div>
+            <div className="col-span-7 flex justify-between">
+              <div className="text-2xl font-bold">Rosathepig@gmail.com</div>
+              <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm"><FiEdit3 size={24} className=""/>Change</button>
+            </div>
+          </div>
+          <div className="grid grid-cols-9 items-center text-white">
+            <div className="col-span-2 text-2xl font-light">Default Location:</div>
+            <div className="col-span-7 flex justify-between">
+              <div className="text-2xl font-bold">Toronto, Ontario, Canada</div>
+              <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm"><FiEdit3 size={24} className=""/>Change</button>
+            </div>
+          </div>
+          <div className="flex justify-end items-center text-white">
+            
+            <div className="col-span-7 flex justify-end">
+              
+              <div className="flex gap-x-5">
+                <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
+                  Change Password
+                </button>
+                <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
+                  Change Profile Picture
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

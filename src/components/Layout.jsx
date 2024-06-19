@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
         <div className="container mx-auto">
           <div className="relative grid grid-cols-1 gap-6 xxl:gap-8 py-3 xxl:py-5 grid-rows-[auto_auto_1fr]">
             <TopBar />
-            {(currentPath !== "/account") ? <ProfileDetails/>: <WeatherDetail />}
+            {(currentPath === "/account") ? <ProfileDetails/>: <WeatherDetail />}
             <Content>
               {currentPath !== "/account" && <Menu />}
               {children}
