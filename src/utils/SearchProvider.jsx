@@ -39,6 +39,32 @@ const SearchProvider = ({ children }) => {
       .catch((e) => alert(`Fetch Error: ${e.message}`));
   }, []);
 
+  const submitSearch = useCallback(
+    (queryString) => {
+      setIsLoading(true);
+      fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`
+      )
+        .then((response) => {
+          if (!response.ok) {
+            return response.json().then((errorData) => {
+              throw new Error(errorData.message);
+            });
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Update today's forecast
+          setTodayForecast(data);
+          getImage(data?.weather?.[0]?.main);
+          getMusic(data?.weather?.[0]?.description);
+          setIsLoading(false);
+        })
+        .catch((e) => alert(`Fetch Error: ${e.message}`));
+    },
+    [getImage]
+  );
+
   useEffect(() => {
     submitSearch("Toronto");
   }, []);
@@ -48,31 +74,6 @@ const SearchProvider = ({ children }) => {
     submitSearch(data);
   }, []);
 
-  const submitSearch = (queryString) => {
-    setIsLoading(true);
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          return response.json().then((errorData) => {
-            throw new Error(errorData.message);
-          });
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Update today's forecast
-        setTodayForecast(data);
-        console.log(data);
-      })
-      .catch((e) => alert(`Fetch Error: ${e.message}`));
-
-    // TODO: Simulate an API call
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // TODO: Remove this line when implementing actual API call
-  };
 
   const values = useMemo(
     () => ({ isLoading, todayForecast, getSearchResult }),
