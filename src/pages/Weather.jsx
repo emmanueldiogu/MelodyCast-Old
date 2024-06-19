@@ -34,7 +34,7 @@ const Weather = () => {
                 <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
                   {
                     convertTimestamp(
-                      todayForecast?.sys.sunrise,
+                      todayForecast?.sys?.sunrise,
                       todayForecast?.timezone,
                       true
                     ).time
@@ -55,7 +55,7 @@ const Weather = () => {
                 <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
                   {
                     convertTimestamp(
-                      todayForecast?.sys.sunset,
+                      todayForecast?.sys?.sunset,
                       todayForecast?.timezone,
                       true
                     ).time
