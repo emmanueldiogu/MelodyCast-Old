@@ -13,6 +13,31 @@ const SearchContext = createContext();
 const SearchProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [todayForecast, setTodayForecast] = useState({});
+  const [weatherImage, setWeatherImage] = useState([]);
+
+  const getMusic = useCallback((description) => {
+    fetch(``);
+  }, []);
+
+  const getImage = useCallback((description) => {
+    fetch(`https://api.pexels.com/v1/search?query=${description}`, {
+      method: "GET",
+      headers: {
+        Authorization:
+          "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData.message);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => setWeatherImage(data?.photos))
+      .catch((e) => alert(`Fetch Error: ${e.message}`));
+  }, []);
 
   useEffect(() => {
     submitSearch("Toronto");
