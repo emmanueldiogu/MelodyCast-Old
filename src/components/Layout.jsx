@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import backgroundImage from "./../assets/bg-image.jpg";
 import { useSearch } from "../utils/SearchProvider";
+import ProfileDetails from "./ProfileDetails";
 
 const Layout = ({ children }) => {
   const currentPath = useLocation().pathname;
@@ -26,7 +27,7 @@ const Layout = ({ children }) => {
         <div className="container mx-auto">
           <div className="relative grid grid-cols-1 gap-6 xxl:gap-8 py-3 xxl:py-5 grid-rows-[auto_auto_1fr]">
             <TopBar />
-            {currentPath !== "/account" && <WeatherDetail />}
+            {(currentPath !== "/account") ? <ProfileDetails/>: <WeatherDetail />}
             <Content>
               {currentPath !== "/account" && <Menu />}
               {children}
