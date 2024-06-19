@@ -172,22 +172,34 @@ const Account = (props) => {
           </div>
         </div>
       </div>
-      <ElevatedBox className="md:col-span-4 py-4  px-6 flex flex-col justify-between text-2xl font-medium text-white">
-        Report Incorrect Weather
-        <div className="flex gap-2.5 mt-1">
-          <div className="flex-1 font-light text-sm">
-            If you notice any inaccuracies in the weather information provided
-            by our app, please report them using the form below:
-          </div>
-        </div>
-        <div className="flex gap-2.5 mt-1 px-2">
-          <div className="font-semibold text-sm">Location</div>
-          <div className="flex-1 relative gap-2.5 mt-1">
+      <ElevatedBox className="md:col-span-4 py-4 px-6 flex-col justify-between text-white">
+        <h3 className="text-2xl font-medium leading-normal">Report Incorrect Weather</h3>
+        <p className="text-sm font-light leading-normal">If you notice any inaccuracies in the weather information provided
+        by our app, please report them using the form below:</p>
+        <div className="flex flex-col gap-2.5 mt-1 px-2">
+          <div className="flex flex-col relative gap-1 mt-1 w-full">
+            <label className="font-semibold text-sm leading-normal" htmlFor="">Location</label>
             <input
               type="text"
               placeholder="Choose your location"
-              className="bg-black/20 border-0  font-light text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full ps-14 border-gray-600 placeholder-gray-400 shadow-lg mt-3 flex-1 p-2.5  "
+              className="bg-black/20 border-0  font-light text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full ps-14 border-gray-600 placeholder-gray-400 shadow-lg mt-3 p-2.5"
             />
+          </div>
+          <div className="flex flex-col relative gap-1 mt-1 w-full">
+            <label className="font-semibold text-sm leading-normal" htmlFor="location">Description of weather issue</label>
+            <input
+              type="text"
+              placeholder="Choose your location"
+              id="location"
+              className="bg-black/20 border-0  font-light text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full ps-14 border-gray-600 placeholder-gray-400 shadow-lg mt-3 p-2.5"
+            />
+          </div>
+          <div className="flex flex-col relative gap-1 mt-1 w-full">
+            <h5 className="font-semibold text-sm leading-normal" >Location</h5>
+            <div className="flex justify-between">
+              <p className="text-sm font-light leading-normal">Attach any screenshots or files related to the weather issues</p>
+              <button className=" bg-black/40 text-white text-sm rounded-full px-6 py-2 shadow-glass">Attach</button>
+            </div>
           </div>
         </div>
       </ElevatedBox>
