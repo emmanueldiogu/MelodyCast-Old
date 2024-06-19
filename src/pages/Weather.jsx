@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import ElevatedBox from "../components/ElevatedBox";
 import AirQuality from "../assets/icons/air_quality.svg";
 import Humidity from "../assets/icons/humidity.svg";
@@ -9,12 +8,18 @@ import SunSet from "../assets/icons/sunset.svg";
 import Thermometer from "../assets/icons/thermometer.svg";
 import UVIndex from "../assets/icons/uv.svg";
 import Wind from "../assets/icons/wind.svg";
+import { useSearch } from "../utils/SearchProvider";
+import { convertTimestamp } from "../utils/convertDateTime";
 
-const Weather = (props) => {
+const Weather = () => {
+  const { todayForecast } = useSearch();
+
   return (
     <main className="md:col-span-11 grid grid-rows-[auto_auto] justify-stretch gap-[22.5px] 2xl:gap-8">
       <div className="grid grid-flow-col grid-cols-6 gap-8 items-center">
-        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
+        <ElevatedBox
+          className={"col-span-1 flex-col justify-center p-6 aspect-square"}
+        >
           <div className="flex flex-col gap-3 justify-center">
             <div className="flex gap-[11px] justify-center">
               <img
@@ -27,7 +32,13 @@ const Weather = (props) => {
                   Sunrise
                 </div>
                 <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
-                  05:30 AM
+                  {
+                    convertTimestamp(
+                      todayForecast?.sys.sunrise,
+                      todayForecast?.timezone,
+                      true
+                    ).time
+                  }
                 </div>
               </div>
             </div>
@@ -42,7 +53,13 @@ const Weather = (props) => {
                   Sunset
                 </div>
                 <div className="font-semibold text-sm 2xl:text-base leading-normal lg:text-nowrap">
-                  09:00 PM
+                  {
+                    convertTimestamp(
+                      todayForecast?.sys.sunset,
+                      todayForecast?.timezone,
+                      true
+                    ).time
+                  }
                 </div>
               </div>
             </div>
@@ -59,13 +76,17 @@ const Weather = (props) => {
             className="absolute inset-0 w-full h-auto p-6 max-w-none"
           />
           <div className="flex flex-col justify-center">
-            <div className="text-clamp-20 text-center">20</div>
+            <div className="text-clamp-20 text-center">
+              {parseInt(todayForecast?.wind?.speed)}
+            </div>
             <div className="text-xs 2xl:text-sm text-center font-light">
               km/hr
             </div>
           </div>
         </ElevatedBox>
-        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
+        <ElevatedBox
+          className={"col-span-1 flex-col justify-center p-6 aspect-square"}
+        >
           <div className="flex flex-col gap-2">
             <div className="flex gap-x-1 items-center justify-center text-white">
               <img
@@ -109,7 +130,9 @@ const Weather = (props) => {
             </div>
           </div>
         </ElevatedBox>
-        <ElevatedBox className={"col-span-1 flex-col justify-center p-6 aspect-square"}>
+        <ElevatedBox
+          className={"col-span-1 flex-col justify-center p-6 aspect-square"}
+        >
           <div className="flex flex-col gap-2">
             <div className="flex gap-1 items-center justify-center text-white">
               <img
@@ -165,7 +188,7 @@ const Weather = (props) => {
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Feels like</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                18°C
+                {parseInt(todayForecast?.main?.feels_like)}°C
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
                 Wind makes it feel cooler
@@ -181,7 +204,7 @@ const Weather = (props) => {
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Humidity</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                40%
+                {parseInt(todayForecast?.main?.humidity)}%
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
                 Comfortable humidity levels
@@ -198,7 +221,7 @@ const Weather = (props) => {
               <div className="text-sm leading-full">Pressure</div>
               <div className="flex flex-1">
                 <div className="align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                  1025
+                  {parseInt(todayForecast?.main?.pressure)}
                 </div>
                 <div className="self-end text-[8px] font-light leading-full">
                   HPA
@@ -329,7 +352,5 @@ const Weather = (props) => {
     </main>
   );
 };
-
-Weather.propTypes = {};
 
 export default Weather;
