@@ -1,8 +1,9 @@
 import { convertTimestamp } from "../utils/convertDateTime";
 import { FaLocationDot } from "react-icons/fa6";
 import { useSearch } from "../utils/useSearch";
+import PropTypes from "prop-types";
 
-const WeatherDetail = () => {
+const WeatherDetail = ({ music = "" }) => {
   const { todayForecast } = useSearch();
   const timestampObject = convertTimestamp(
     todayForecast?.dt,
@@ -35,10 +36,16 @@ const WeatherDetail = () => {
               </h4>
             </div>
             <div className="flex flex-col font-normal text-clamp-day text-white leading-[120%] ml-8">
-              <p>
-                {`${timestampObject.weekday} | ${timestampObject.day} ${timestampObject.month} ${timestampObject.year}`}
-              </p>
-              <p>{`${timestampObject.time} (${timestampObject.timezone})`}</p>
+              {music.length > 0 ? (
+                <p className=" text-5xl font-normal">{music}</p>
+              ) : (
+                <>
+                  <p>
+                    {`${timestampObject.weekday} | ${timestampObject.day} ${timestampObject.month} ${timestampObject.year}`}
+                  </p>
+                  <p>{`${timestampObject.time} (${timestampObject.timezone})`}</p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -56,6 +63,10 @@ const WeatherDetail = () => {
       </div>
     </section>
   );
+};
+
+WeatherDetail.propTypes = {
+  music: PropTypes.string,
 };
 
 export default WeatherDetail;
