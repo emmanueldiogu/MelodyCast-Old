@@ -189,7 +189,7 @@ const Account = (props) => {
             <label className="font-semibold text-sm leading-normal" htmlFor="location">Description of weather issue</label>
             <input
               type="text"
-              placeholder="Choose your location"
+              placeholder="Describe the weather issue"
               id="location"
               className="bg-black/20 border-0  font-light text-sm rounded-full focus:ring-gray-500 focus:border-gray-500 block w-full ps-14 border-gray-600 placeholder-gray-400 shadow-lg mt-3 p-2.5"
             />
