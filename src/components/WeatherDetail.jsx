@@ -25,9 +25,12 @@ const WeatherDetail = () => {
               </h3>
               <h4 className=" font-normal text-clamp-54 leading-full text-main font-bebas">
                 <span>
-                  {isNaN(parseInt(todayForecast.main?.temp))
-                    ? "20" // Default value if NaN
-                    : parseInt(todayForecast.main?.temp).toString()}
+                  {
+                    todayForecast?.main?.temp &&
+                    !isNaN(todayForecast?.main?.temp)
+                      ? parseInt(todayForecast?.main?.temp).toString()
+                      : 0 // Default value if NaN or undefined
+                  }
                 </span>
                 °<span>C</span>
               </h4>

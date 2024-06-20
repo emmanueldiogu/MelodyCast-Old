@@ -77,7 +77,10 @@ const Weather = () => {
           />
           <div className="flex flex-col justify-center">
             <div className="text-clamp-20 text-center">
-              {parseInt(todayForecast?.wind?.speed)}
+              {todayForecast?.wind?.speed &&
+              !isNaN(parseFloat(todayForecast.wind.speed))
+                ? parseInt(todayForecast.wind.speed)
+                : 20}
             </div>
             <div className="text-xs 2xl:text-sm text-center font-light">
               km/hr
@@ -188,7 +191,13 @@ const Weather = () => {
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Feels like</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                {parseInt(todayForecast?.main?.feels_like)}°C
+                {
+                  todayForecast?.wind?.feels_like &&
+                  !isNaN(parseFloat(todayForecast.wind.feels_like))
+                    ? parseInt(todayForecast.wind.feels_like)
+                    : 0 // Replace with your default value if speed is not a valid number
+                }
+                °C
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
                 Wind makes it feel cooler
@@ -204,7 +213,14 @@ const Weather = () => {
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Humidity</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                {parseInt(todayForecast?.main?.humidity)}%
+                feels_like
+                {
+                  todayForecast?.wind?.humidity &&
+                  !isNaN(parseFloat(todayForecast.wind.humidity))
+                    ? parseInt(todayForecast.wind.humidity)
+                    : 0 // Replace with your default value if speed is not a valid number
+                }
+                %
               </div>
               <div className="text-[8px] leading-full max-w-[94px]">
                 Comfortable humidity levels
@@ -221,7 +237,12 @@ const Weather = () => {
               <div className="text-sm leading-full">Pressure</div>
               <div className="flex flex-1">
                 <div className="align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                  {parseInt(todayForecast?.main?.pressure)}
+                  {
+                    todayForecast?.wind?.pressure &&
+                    !isNaN(parseFloat(todayForecast.wind.pressure))
+                      ? parseInt(todayForecast.wind.pressure)
+                      : 0 // Replace with your default value if speed is not a valid number
+                  }
                 </div>
                 <div className="self-end text-[8px] font-light leading-full">
                   HPA

@@ -16,19 +16,21 @@ const SearchProvider = ({ children }) => {
   const [weatherImage, setWeatherImage] = useState([]);
 
   const getMusic = useCallback((description) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`)
-      .then((response) => {
+    fetch(
+      `https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`
+    )
+      .then(async (response) => {
+        console.log(response);
         if (!response.ok) {
-          return response.json().then((errorData) => {
-            throw new Error(errorData.message);
-          });
+          const errorData = await response.json();
+          throw new Error(errorData.message);
         }
         return response.json();
       })
       .then((data) => {
         console.log(data);
       })
-      .catch((e) => alaert(`Fetch Error: ${e.message}`));
+      .catch((e) => alert(`Fetch Error: ${e.message}`));
   }, []);
 
   const getImage = useCallback((description) => {
@@ -39,11 +41,10 @@ const SearchProvider = ({ children }) => {
           "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
       },
     })
-      .then((response) => {
+      .then(async (response) => {
         if (!response.ok) {
-          return response.json().then((errorData) => {
-            throw new Error(errorData.message);
-          });
+          const errorData = await response.json();
+          throw new Error(errorData.message);
         }
         return response.json();
       })
@@ -57,11 +58,10 @@ const SearchProvider = ({ children }) => {
       fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`
       )
-        .then((response) => {
+        .then(async (response) => {
           if (!response.ok) {
-            return response.json().then((errorData) => {
-              throw new Error(errorData.message);
-            });
+            const errorData = await response.json();
+            throw new Error(errorData.message);
           }
           return response.json();
         })
@@ -82,10 +82,12 @@ const SearchProvider = ({ children }) => {
   }, [submitSearch]);
 
   // Function to get props from child component
-  const getSearchResult = useCallback((data) => {
-    submitSearch(data);
-  }, [submitSearch]);
-
+  const getSearchResult = useCallback(
+    (data) => {
+      submitSearch(data);
+    },
+    [submitSearch]
+  );
 
   const values = useMemo(
     () => ({ isLoading, todayForecast, getSearchResult, weatherImage }),
