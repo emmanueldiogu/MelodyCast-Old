@@ -1,7 +1,6 @@
 import { convertTimestamp } from "../utils/convertDateTime";
-import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
-import { useSearch } from "../utils/SearchProvider";
+import { useSearch } from "../utils/useSearch";
 
 const WeatherDetail = () => {
   const { todayForecast } = useSearch();

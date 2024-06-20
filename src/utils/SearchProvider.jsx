@@ -1,19 +1,19 @@
-import React, {
+import {
   createContext,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   useState,
 } from "react";
 import PropTypes from "prop-types";
 
-const SearchContext = createContext();
+export const SearchContext = createContext();
 
-const SearchProvider = ({ children }) => {
+export const SearchProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [todayForecast, setTodayForecast] = useState({});
   const [weatherImage, setWeatherImage] = useState([]);
+  const [musicResult, setMusicResult] = useState([]);
 
   const getMusic = useCallback((description) => {
     fetch(
@@ -29,6 +29,7 @@ const SearchProvider = ({ children }) => {
       })
       .then((data) => {
         console.log(data);
+        setMusicResult(data.results);
       })
       .catch((e) => alert(`Fetch Error: ${e.message}`));
   }, []);
@@ -69,12 +70,12 @@ const SearchProvider = ({ children }) => {
           // Update today's forecast
           setTodayForecast(data);
           getImage(data?.weather?.[0]?.main);
-          getMusic(data?.weather?.[0]?.description);
+          getMusic(data?.weather?.[0]?.main);
           setIsLoading(false);
         })
         .catch((e) => alert(`Fetch Error: ${e.message}`));
     },
-    [getImage]
+    [getImage, getMusic]
   );
 
   useEffect(() => {
@@ -90,8 +91,14 @@ const SearchProvider = ({ children }) => {
   );
 
   const values = useMemo(
-    () => ({ isLoading, todayForecast, getSearchResult, weatherImage }),
-    [isLoading, todayForecast, getSearchResult, weatherImage]
+    () => ({
+      isLoading,
+      todayForecast,
+      getSearchResult,
+      weatherImage,
+      musicResult,
+    }),
+    [isLoading, todayForecast, getSearchResult, weatherImage, musicResult]
   );
 
   return (
@@ -102,11 +109,3 @@ const SearchProvider = ({ children }) => {
 SearchProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export const useSearch = () => {
-  if (!useContext(SearchContext))
-    throw new Error("useSearch must be used within a SearchProvider");
-  return useContext(SearchContext);
-};
-
-export default SearchProvider;

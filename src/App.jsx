@@ -6,7 +6,7 @@ import Location from "./pages/Location";
 import Music from "./pages/Music";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
-import SearchProvider from "./utils/SearchProvider";
+import { SearchProvider } from "./utils/SearchProvider";
 
 export default function App() {
   return (

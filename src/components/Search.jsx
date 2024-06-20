@@ -1,6 +1,5 @@
-import React from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
-import { useSearch } from "../utils/SearchProvider";
+import { useSearch } from "../utils/useSearch";
 
 const Search = () => {
   const { getSearchResult } = useSearch();
