@@ -1,4 +1,3 @@
-import React from "react";
 import ElevatedBox from "../components/ElevatedBox";
 import AirQuality from "../assets/icons/air_quality.svg";
 import Humidity from "../assets/icons/humidity.svg";
@@ -8,11 +7,12 @@ import SunSet from "../assets/icons/sunset.svg";
 import Thermometer from "../assets/icons/thermometer.svg";
 import UVIndex from "../assets/icons/uv.svg";
 import Wind from "../assets/icons/wind.svg";
-import { useSearch } from "../utils/SearchProvider";
+import { useSearch } from "../utils/useSearch";
 import { convertTimestamp } from "../utils/convertDateTime";
 
 const Weather = () => {
   const { todayForecast } = useSearch();
+  console.log(todayForecast);
 
   return (
     <main className="md:col-span-11 grid grid-rows-[auto_auto] justify-stretch gap-[22.5px] 2xl:gap-8">
@@ -192,9 +192,9 @@ const Weather = () => {
               <div className="text-sm leading-full">Feels like</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
                 {
-                  todayForecast?.wind?.feels_like &&
-                  !isNaN(parseFloat(todayForecast.wind.feels_like))
-                    ? parseInt(todayForecast.wind.feels_like)
+                  todayForecast?.main?.feels_like &&
+                  !isNaN(parseFloat(todayForecast.main.feels_like))
+                    ? parseInt(todayForecast.main.feels_like)
                     : 0 // Replace with your default value if speed is not a valid number
                 }
                 °C
@@ -213,11 +213,10 @@ const Weather = () => {
             <div className="flex flex-col gap-1 flex-1">
               <div className="text-sm leading-full">Humidity</div>
               <div className=" align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
-                feels_like
                 {
-                  todayForecast?.wind?.humidity &&
-                  !isNaN(parseFloat(todayForecast.wind.humidity))
-                    ? parseInt(todayForecast.wind.humidity)
+                  todayForecast?.main?.humidity &&
+                  !isNaN(parseFloat(todayForecast.main.humidity))
+                    ? parseInt(todayForecast.main.humidity)
                     : 0 // Replace with your default value if speed is not a valid number
                 }
                 %
@@ -238,9 +237,9 @@ const Weather = () => {
               <div className="flex flex-1">
                 <div className="align-bottom font-bebas font-normal text-clamp-20 leading-full whitespace-nowrap">
                   {
-                    todayForecast?.wind?.pressure &&
-                    !isNaN(parseFloat(todayForecast.wind.pressure))
-                      ? parseInt(todayForecast.wind.pressure)
+                    todayForecast?.main?.pressure &&
+                    !isNaN(parseFloat(todayForecast.main.pressure))
+                      ? parseInt(todayForecast.main.pressure)
                       : 0 // Replace with your default value if speed is not a valid number
                   }
                 </div>
