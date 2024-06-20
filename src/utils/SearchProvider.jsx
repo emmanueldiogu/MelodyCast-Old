@@ -16,7 +16,19 @@ const SearchProvider = ({ children }) => {
   const [weatherImage, setWeatherImage] = useState([]);
 
   const getMusic = useCallback((description) => {
-    fetch(``);
+    fetch(`https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`)
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData.message);
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => alaert(`Fetch Error: ${e.message}`));
   }, []);
 
   const getImage = useCallback((description) => {
