@@ -31,6 +31,8 @@ const Layout = ({ children }) => {
             <TopBar />
             {currentPath === "/account" ? (
               <ProfileDetails />
+            ) : currentPath === "/music" ? (
+              <WeatherDetail music="Which Melody Matches Your Mood?" />
             ) : (
               <WeatherDetail />
             )}
