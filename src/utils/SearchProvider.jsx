@@ -28,10 +28,13 @@ export const SearchProvider = ({ children }) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        setMusicResult(data.results);
+        console.log(data?.results);
+        setMusicResult(data?.results);
       })
-      .catch((e) => alert(`Fetch Error: ${e.message}`));
+      .catch((e) => {
+        alert(`Fetch Error: ${e.message}`);
+        setIsLoading(false);
+      });
   }, []);
 
   const getImage = useCallback((description) => {
@@ -50,7 +53,10 @@ export const SearchProvider = ({ children }) => {
         return response.json();
       })
       .then((data) => setWeatherImage(data?.photos))
-      .catch((e) => alert(`Fetch Error: ${e.message}`));
+      .catch((e) => {
+        alert(`Fetch Error: ${e.message}`);
+        setIsLoading(false);
+      });
   }, []);
 
   const submitSearch = useCallback(
@@ -73,7 +79,10 @@ export const SearchProvider = ({ children }) => {
           getMusic(data?.weather?.[0]?.main);
           setIsLoading(false);
         })
-        .catch((e) => alert(`Fetch Error: ${e.message}`));
+        .catch((e) => {
+          alert(`Fetch Error: ${e.message}`);
+          setIsLoading(false);
+        });
     },
     [getImage, getMusic]
   );
