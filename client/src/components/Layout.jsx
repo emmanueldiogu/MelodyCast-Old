@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useSearch } from "../utils/useSearch";
 import ProfileDetails from "./ProfileDetails";
-import bgImage from "./../assets/bg-image.jpg";
+import bgImage from "../assets/bg-image.jpg";
 import { useEffect, useState } from "react";
 
 const Layout = ({ children }) => {

@@ -1,6 +1,6 @@
 import ElevatedBox from "../components/ElevatedBox";
-import backgroundImage from "./../assets/bg-image.jpg";
-import cloud from "./../assets/cloud.png";
+import backgroundImage from "../assets/bg-image.jpg";
+import cloud from "../assets/cloud.png";
 
 const Location = () => {
   return (
