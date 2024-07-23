@@ -1,12 +1,12 @@
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
-import { useSearch } from "../utils/useSearch";
+import { useSearch } from "../providers/useSearch";
 
 const Search = () => {
   const { getSearchResult } = useSearch();
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      if (!(e.target.value.length > 2))
+      if (!(e.target.value.length > 1))
         return alert("Must have minimum of 3 characters");
       getSearchResult(e.target.value);
     }

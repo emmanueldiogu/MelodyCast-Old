@@ -7,7 +7,7 @@ import SunSet from "../assets/icons/sunset.svg";
 import Thermometer from "../assets/icons/thermometer.svg";
 import UVIndex from "../assets/icons/uv.svg";
 import Wind from "../assets/icons/wind.svg";
-import { useSearch } from "../utils/useSearch";
+import { useSearch } from "../providers/useSearch";
 import { convertTimestamp } from "../utils/convertDateTime";
 
 const Weather = () => {

@@ -1,12 +1,12 @@
 import LoadingOverlay from "../utils/LoadingOverlay";
-import TopBar from "./TopBar";
-import Menu from "./Menu";
-import WeatherDetail from "./WeatherDetail";
+import TopBar from "../components/TopBar";
+import Menu from "../components/Menu";
+import WeatherDetail from "../components/WeatherDetail";
 import Content from "./Content";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useSearch } from "../utils/useSearch";
-import ProfileDetails from "./ProfileDetails";
+import { useSearch } from "../providers/useSearch";
+import ProfileDetails from "../components/ProfileDetails";
 import bgImage from "../assets/bg-image.jpg";
 import { useEffect, useState } from "react";
 

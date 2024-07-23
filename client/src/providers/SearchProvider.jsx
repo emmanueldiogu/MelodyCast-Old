@@ -14,6 +14,7 @@ export const SearchProvider = ({ children }) => {
   const [todayForecast, setTodayForecast] = useState({});
   const [weatherImage, setWeatherImage] = useState([]);
   const [musicResult, setMusicResult] = useState([]);
+  const [isAuth, setIsAuth] = useState(false);
 
   const getMusic = useCallback((description) => {
     fetch(
@@ -88,8 +89,10 @@ export const SearchProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    submitSearch("Toronto");
-  }, [submitSearch]);
+    if (isAuth) {
+      submitSearch("Toronto");
+    }
+  }, [isAuth, submitSearch]);
 
   // Function to get props from child component
   const getSearchResult = useCallback(
@@ -106,8 +109,16 @@ export const SearchProvider = ({ children }) => {
       getSearchResult,
       weatherImage,
       musicResult,
+      isAuth,
     }),
-    [isLoading, todayForecast, getSearchResult, weatherImage, musicResult]
+    [
+      isLoading,
+      todayForecast,
+      getSearchResult,
+      weatherImage,
+      musicResult,
+      isAuth,
+    ]
   );
 
   return (
