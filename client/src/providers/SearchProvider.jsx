@@ -14,10 +14,21 @@ export const SearchProvider = ({ children }) => {
   const [todayForecast, setTodayForecast] = useState({});
   const [weatherImage, setWeatherImage] = useState([]);
   const [musicResult, setMusicResult] = useState([]);
+  const [currentUser, setCurrentUser] = useState(() => {
+    const savedUser = sessionStorage.getItem("melodyCastUser");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(
+      "melodyCastUser",
+      JSON.stringify(currentUser),
+    );
+  }, [currentUser]);
 
   const getMusic = useCallback((description) => {
     fetch(
-      `https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`
+      `https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`,
     )
       .then(async (response) => {
         console.log(response);
@@ -38,13 +49,16 @@ export const SearchProvider = ({ children }) => {
   }, []);
 
   const getImage = useCallback((description) => {
-    fetch(`https://api.pexels.com/v1/search?query=${description}`, {
-      method: "GET",
-      headers: {
-        Authorization:
-          "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
+    fetch(
+      `https://api.pexels.com/v1/search?query=${description}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
+        },
       },
-    })
+    )
       .then(async (response) => {
         if (!response.ok) {
           const errorData = await response.json();
@@ -63,7 +77,7 @@ export const SearchProvider = ({ children }) => {
     (queryString) => {
       setIsLoading(true);
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`
+        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`,
       )
         .then(async (response) => {
           if (!response.ok) {
@@ -84,34 +98,50 @@ export const SearchProvider = ({ children }) => {
           setIsLoading(false);
         });
     },
-    [getImage, getMusic]
+    [getImage, getMusic],
   );
 
   useEffect(() => {
-    submitSearch("Toronto");
-  }, [submitSearch]);
+    if (currentUser) {
+      submitSearch("Toronto");
+    }
+  }, [currentUser, submitSearch]);
 
   // Function to get props from child component
   const getSearchResult = useCallback(
     (data) => {
       submitSearch(data);
     },
-    [submitSearch]
+    [submitSearch],
   );
 
   const values = useMemo(
     () => ({
       isLoading,
+      setIsLoading,
       todayForecast,
       getSearchResult,
       weatherImage,
       musicResult,
+      currentUser,
+      setCurrentUser,
     }),
-    [isLoading, todayForecast, getSearchResult, weatherImage, musicResult]
+    [
+      isLoading,
+      setIsLoading,
+      todayForecast,
+      getSearchResult,
+      weatherImage,
+      musicResult,
+      currentUser,
+      setCurrentUser,
+    ],
   );
 
   return (
-    <SearchContext.Provider value={values}>{children}</SearchContext.Provider>
+    <SearchContext.Provider value={values}>
+      {children}
+    </SearchContext.Provider>
   );
 };
 

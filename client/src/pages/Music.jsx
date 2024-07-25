@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ElevatedBox from "../components/ElevatedBox";
-import { useSearch } from "../utils/useSearch";
+import { useSearch } from "../providers/useSearch";
 
 const Music = (props) => {
   const { musicResult } = useSearch();

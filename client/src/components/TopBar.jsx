@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "./../assets/melodycast.svg";
-import User from "./../assets/user.svg";
+import Logo from "../assets/melodycast.svg";
+import User from "../assets/user.svg";
 import PropTypes from "prop-types";
 import Search from "./Search";
 import { Link } from "react-router-dom";
@@ -21,7 +21,7 @@ const TopBar = (props) => {
           </Link>
         </div>
         <div className="grow">
-          <Search getSearchResult={props.getSearchResult}/>
+          <Search getSearchResult={props.getSearchResult} />
         </div>
         <div className="flex flex-col flex-1 justify-center items-end">
           <Link to="/account">
@@ -34,7 +34,7 @@ const TopBar = (props) => {
 };
 
 TopBar.propTypes = {
-  getSearchResult: PropTypes.func
+  getSearchResult: PropTypes.func,
 };
 
 export default TopBar;

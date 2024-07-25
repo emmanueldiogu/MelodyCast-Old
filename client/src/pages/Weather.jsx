@@ -7,12 +7,11 @@ import SunSet from "../assets/icons/sunset.svg";
 import Thermometer from "../assets/icons/thermometer.svg";
 import UVIndex from "../assets/icons/uv.svg";
 import Wind from "../assets/icons/wind.svg";
-import { useSearch } from "../utils/useSearch";
+import { useSearch } from "../providers/useSearch";
 import { convertTimestamp } from "../utils/convertDateTime";
 
 const Weather = () => {
   const { todayForecast } = useSearch();
-  console.log(todayForecast);
 
   return (
     <main className="md:col-span-11 grid grid-rows-[auto_auto] justify-stretch gap-[22.5px] 2xl:gap-8">

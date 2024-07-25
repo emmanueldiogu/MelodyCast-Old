@@ -1,6 +1,6 @@
 import { convertTimestamp } from "../utils/convertDateTime";
 import { FaLocationDot } from "react-icons/fa6";
-import { useSearch } from "../utils/useSearch";
+import { useSearch } from "../providers/useSearch";
 import PropTypes from "prop-types";
 
 const WeatherDetail = ({ music = "" }) => {
