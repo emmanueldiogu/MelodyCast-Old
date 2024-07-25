@@ -18,7 +18,7 @@ export const SearchProvider = ({ children }) => {
 
   const getMusic = useCallback((description) => {
     fetch(
-      `https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`
+      `https://itunes.apple.com/search?term=${description}&media=musicVideo&limit=15`,
     )
       .then(async (response) => {
         console.log(response);
@@ -39,13 +39,16 @@ export const SearchProvider = ({ children }) => {
   }, []);
 
   const getImage = useCallback((description) => {
-    fetch(`https://api.pexels.com/v1/search?query=${description}`, {
-      method: "GET",
-      headers: {
-        Authorization:
-          "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
+    fetch(
+      `https://api.pexels.com/v1/search?query=${description}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            "rMB4CuVVrlCIG353m7MCI8xRyobzznDc18E9itHfaYIuKo7qNJGQuVxB",
+        },
       },
-    })
+    )
       .then(async (response) => {
         if (!response.ok) {
           const errorData = await response.json();
@@ -64,7 +67,7 @@ export const SearchProvider = ({ children }) => {
     (queryString) => {
       setIsLoading(true);
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`
+        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`,
       )
         .then(async (response) => {
           if (!response.ok) {
@@ -85,7 +88,7 @@ export const SearchProvider = ({ children }) => {
           setIsLoading(false);
         });
     },
-    [getImage, getMusic]
+    [getImage, getMusic],
   );
 
   useEffect(() => {
@@ -99,12 +102,13 @@ export const SearchProvider = ({ children }) => {
     (data) => {
       submitSearch(data);
     },
-    [submitSearch]
+    [submitSearch],
   );
 
   const values = useMemo(
     () => ({
       isLoading,
+      setIsLoading,
       todayForecast,
       getSearchResult,
       weatherImage,
@@ -113,16 +117,19 @@ export const SearchProvider = ({ children }) => {
     }),
     [
       isLoading,
+      setIsLoading,
       todayForecast,
       getSearchResult,
       weatherImage,
       musicResult,
       isAuth,
-    ]
+    ],
   );
 
   return (
-    <SearchContext.Provider value={values}>{children}</SearchContext.Provider>
+    <SearchContext.Provider value={values}>
+      {children}
+    </SearchContext.Provider>
   );
 };
 

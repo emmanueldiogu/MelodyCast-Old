@@ -8,31 +8,78 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
-import { useSearch } from "./providers/useSearch";
+import PublicRoute from "./layouts/PublicRoute";
+import ProtectedRoute from "./layouts/ProtectedRoute";
 
 export default function App() {
-  const { isAuth } = useSearch();
-
   return (
-    <>
-      {isAuth ? (
-        <Layout>
-          <Routes>
-            <Route path="/" Component={Weather} />
-            <Route path="/location" Component={Location} />
-            <Route path="/music" Component={Music} />
-            <Route path="/settings" Component={Settings} />
-            <Route path="/account" Component={Account} />
-            <Route path="/sign-in" Component={SignIn} />
-            <Route path="/sign-out" Component={SignUp} />
-          </Routes>
-        </Layout>
-      ) : (
-        <Routes>
-          <Route path="/sign-in" Component={SignIn} />
-          <Route path="/sign-out" Component={SignUp} />
-        </Routes>
-      )}
-    </>
+    <Routes>
+      <Route
+        path="/sign-in"
+        element={
+          <PublicRoute>
+            <SignIn />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/sign-up"
+        element={
+          <PublicRoute>
+            <SignUp />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Weather />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/location"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Location />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/music"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Music />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Settings />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/account"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <Account />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   );
 }

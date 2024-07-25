@@ -12,7 +12,6 @@ import { convertTimestamp } from "../utils/convertDateTime";
 
 const Weather = () => {
   const { todayForecast } = useSearch();
-  console.log(todayForecast);
 
   return (
     <main className="md:col-span-11 grid grid-rows-[auto_auto] justify-stretch gap-[22.5px] 2xl:gap-8">

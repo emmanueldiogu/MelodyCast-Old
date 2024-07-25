@@ -1,12 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import WeatherIcon from "./icons/WeatherIcon";
 import MusicIcon from "./icons/MusicIcon";
 import LocationIcon from "./icons/LocationIcon";
 import SettingsIcon from "./icons/SettingsIcon";
 
-const Menu = (props) => {
+const Menu = () => {
   return (
     <aside className="hidden md:flex md:col-span-1 h-full">
       <nav className="flex flex-col gap-y-6 2xl:gap-y-9 items-center justify-between rounded-full py-7 2xl:py-12 px-2 bg-white/20 shadow-glass backdrop-blur-md h-fit">
@@ -70,7 +68,5 @@ const Menu = (props) => {
     </aside>
   );
 };
-
-Menu.propTypes = {};
 
 export default Menu;

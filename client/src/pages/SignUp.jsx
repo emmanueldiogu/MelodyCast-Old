@@ -1,110 +1,173 @@
-
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import LoadingOverlay from "../utils/LoadingOverlay";
 
 const SignUp = () => {
+  const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { id, value, checked, type } = e.target;
+    setFormData({
+      ...formData,
+      [id]: type === "checkbox" ? checked : value,
+    });
+  };
+  // http://localhost:3000/api/auth/signup
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.success === false) {
+        setIsError(true);
+        setMessage(data.message);
+        setLoading(false);
+        return;
+      }
+      setLoading(false);
+      setIsError(false);
+      navigate("/sign-in");
+    } catch (error) {
+      setIsError(true);
+      setMessage(error.message);
+      setLoading(false);
+    }
+  };
   return (
     <>
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-lg">
-          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-            Get started today
-          </h1>
-
-          <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-            sunt dolores deleniti inventore quaerat mollitia?
-          </p>
-
-          <form
-            action="#"
-            className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-          >
-            <p className="text-center text-lg font-medium">
-              Sign in to your account
-            </p>
-
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Enter email"
-                />
-
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-
-              <div className="relative">
-                <input
-                  type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Enter password"
-                />
-
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+      {loading && <LoadingOverlay />}
+      <div className="dark:bg-zinc-950 min-h-dvh flex justify-center items-center m-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-lg flex flex-col gap-5"
+        >
+          {isError && (
+            <div
+              role="alert"
+              className="rounded border-s-4 border-red-500 bg-red-50 p-4"
             >
-              Sign in
-            </button>
+              <div className="flex items-center gap-2 text-red-800">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
 
-            <p className="text-center text-sm text-gray-500">
-              No account?
-              <a className="underline" href="#">
-                Sign up
+                <strong className="block font-medium">
+                  {" "}
+                  {message}
+                </strong>
+              </div>
+            </div>
+          )}
+
+          <p className="text-center text-xl font-medium mb-10 dark:text-white">
+            Sign up to create an account
+          </p>
+          <div>
+            <label
+              htmlFor="username"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Your username
+            </label>
+            <input
+              type="text"
+              id="username"
+              className="shadow-sm bg-slate-100 border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              placeholder="enter your username"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Your email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="shadow-sm bg-slate-100 border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              placeholder="name@flowbite.com"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Your password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="shadow-sm bg-slate-100 border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div className="flex items-start mb-5">
+            <div className="flex items-center h-5">
+              <input
+                id="terms"
+                type="checkbox"
+                value=""
+                className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                required
+                onChange={handleChange}
+              />
+            </div>
+            <label
+              htmlFor="terms"
+              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              I agree with the{" "}
+              <a
+                href="#"
+                className="text-blue-600 hover:underline dark:text-blue-500"
+              >
+                terms and conditions
               </a>
-            </p>
-          </form>
-        </div>
+            </label>
+          </div>
+          <button
+            disabled={loading}
+            type="submit"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full"
+          >
+            {loading ? "Loading..." : "Register new account"}
+          </button>
+          <p className="text-sm text-gray-500">
+            Already have an account? &nbsp;
+            <Link to="/sign-in" className="underline">
+              Sign in
+            </Link>
+          </p>
+        </form>
       </div>
     </>
   );
