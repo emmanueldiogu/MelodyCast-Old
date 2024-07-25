@@ -2,9 +2,9 @@ import { Navigate } from "react-router-dom";
 import { useSearch } from "../providers/useSearch";
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuth } = useSearch();
+  const { currentUser } = useSearch();
 
-  if (!isAuth) {
+  if (!currentUser) {
     return <Navigate to="/sign-in" />;
   }
 

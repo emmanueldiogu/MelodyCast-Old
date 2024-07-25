@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoadingOverlay from "../utils/LoadingOverlay";
+import { useSearch } from "../providers/useSearch";
 
 const SignIn = () => {
+  const { currentUser, setCurrentUser } = useSearch();
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [message, setMessage] = useState("");
@@ -29,6 +31,7 @@ const SignIn = () => {
       });
       const data = await res.json();
       console.log(data);
+      setCurrentUser(data);
       if (data.success === false) {
         setIsError(true);
         setMessage(data.message);

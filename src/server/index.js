@@ -34,14 +34,14 @@ server.use("*", (req, res) => {
   res.status(404).send("Page not found");
 });
 
-server.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  const message = err.message || "Internal Server Error";
+// server.use((err, req, res, next) => {
+//   const statusCode = err.statusCode || 500;
+//   const message = err.message || "Internal Server Error";
 
-  return res
-    .status(statusCode)
-    .send(errorHandler(false, statusCode, message));
-});
+//   return res
+//     .status(statusCode)
+//     .send(errorHandler(false, statusCode, message));
+// });
 
 server.listen(config.PORT, config.HOST, () => {
   console.log(
