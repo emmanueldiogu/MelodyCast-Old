@@ -4,7 +4,7 @@ import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
 
 export const signup = async (req, res, next) => {
-  const { username, email, password, terms } = req.body;
+  const { name, email, password, terms } = req.body;
   if (!terms)
     res
       .status(400)
@@ -15,19 +15,26 @@ export const signup = async (req, res, next) => {
           "Terms and conditions are required",
         ),
       );
-  const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new User({
-    username,
-    email,
-    password: hashedPassword,
-  });
-  try {
-    await newUser.save();
-    res
-      .status(201)
-      .send({ message: "User created successfully" });
-  } catch (err) {
-    next(errorHandler(false, 500, "Something went wrong"));
+  const validUser = await User.findOne({ email });
+  
+  if (validUser) {
+    next(errorHandler(false, 401, "User already exist"));
+  } else {
+    const hashedPassword = bcryptjs.hashSync(password, 10);
+    const newUser = new User({
+      name,
+      email,
+      password: hashedPassword,
+    });
+    try {
+      await newUser.save();
+      res
+        .status(201)
+        .send({ message: "User created successfully" });
+    } catch (err) {
+      console.error(err);
+      next(errorHandler(false, 500, "Something went wrong"));
+    }
   }
 };
 

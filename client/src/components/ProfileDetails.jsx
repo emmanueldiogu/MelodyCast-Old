@@ -17,17 +17,21 @@ const ProfileDetails = () => {
   return (
     <section>
       <div className="grid grid-cols-12 gap-10 px-10">
-        <div className="col-span-3 aspect-square rounded-full">
+        <div className="relative col-span-3 aspect-square rounded-full">
           <img
             src={profilePic}
             alt="user profile picture"
             className="aspect-square rounded-full"
           />
+          <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
+          <FiEdit3 size={24} className="" />
+          Edit
+          </button>
         </div>
         <div className="col-span-9 flex flex-col py-3 gap-y-4">
           <div className="flex justify-between items-center text-white">
             <h2 className="text-5xl font-bold">
-              {currentUser.username}
+              {currentUser.name}
             </h2>
             <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
               <FiEdit3 size={24} className="" />
@@ -36,11 +40,11 @@ const ProfileDetails = () => {
           </div>
           <div className="grid grid-cols-9 items-center text-white">
             <div className="col-span-2 text-2xl font-light">
-              Username:
+              name:
             </div>
             <div className="col-span-7 flex justify-between">
               <div className="text-2xl font-bold">
-                {currentUser.username}
+                {currentUser.name}
               </div>
               <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
                 <FiEdit3 size={24} className="" />
@@ -81,9 +85,6 @@ const ProfileDetails = () => {
               <div className="flex gap-x-5">
                 <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
                   Change Password
-                </button>
-                <button className="flex gap-[10px] px-6 py-1 items-center shadow-glass bg-black/40 rounded-full italic text-sm">
-                  Change Profile Picture
                 </button>
                 <button
                   onClick={logout}
