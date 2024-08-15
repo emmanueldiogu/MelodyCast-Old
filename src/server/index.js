@@ -21,7 +21,6 @@ mongoose
 
 server.use(express.json());
 server.use(express.static("dist"));
-server.set("view engine", "ejs");
 
 server.get("/", (req, res) => {
   res.render("index", { content: "EJS is cool" });
