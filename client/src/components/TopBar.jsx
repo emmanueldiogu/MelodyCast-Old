@@ -1,11 +1,22 @@
-import React from "react";
-import Logo from "../assets/melodycast.svg";
-import User from "../assets/user.svg";
 import PropTypes from "prop-types";
-import Search from "./Search";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../assets/melodycast.svg";
+import profilePic from "../assets/user.svg";
+import { useSearch } from "../providers/useSearch";
+import Search from "./Search";
 
 const TopBar = (props) => {
+  const { currentUser } = useSearch();
+  const [userProfilePic, setUserProfilePic] =
+    useState();
+    useEffect(() => {
+      if (currentUser.img) {
+        setUserProfilePic(currentUser.img);
+      } else {
+        setUserProfilePic(profilePic);
+      }
+    }, [currentUser]);
   return (
     <header>
       <div className="flex gap-0 items-center justify-between self-stretch max-md:flex-wrap">
@@ -25,7 +36,11 @@ const TopBar = (props) => {
         </div>
         <div className="flex flex-col flex-1 justify-center items-end">
           <Link to="/account">
-            <img src={User} alt="User image" className=" w-12" />
+            <img
+              src={userProfilePic}
+              alt="User image"
+              className=" w-12"
+            />
           </Link>
         </div>
       </div>

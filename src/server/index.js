@@ -1,13 +1,16 @@
-import os from "node:os";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
-
+import os from "node:os";
+import path from "node:path";
 import config from "./config.js";
-import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
+import userRoutes from "./routes/user.route.js";
 import { errorHandler } from "./utils/error.js";
+const __dirname = import.meta.dirname;
+
+dotenv.config();
 const server = express();
 
 mongoose
@@ -20,6 +23,12 @@ mongoose
   });
 
 server.use(express.json());
+server.use(cookieParser());
+// Serve static files from the uploads directory
+server.use(
+  "/api/uploads",
+  express.static(path.join(__dirname, "../uploads")),
+);
 server.use(express.static("dist"));
 
 server.get("/", (req, res) => {
