@@ -77,7 +77,7 @@ export const SearchProvider = ({ children }) => {
     (queryString) => {
       setIsLoading(true);
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${queryString}&units=metric&appid=816ae27a3e61fc6dcee0eef8b22a0394`,
       )
         .then(async (response) => {
           if (!response.ok) {

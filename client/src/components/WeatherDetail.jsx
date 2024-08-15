@@ -53,8 +53,8 @@ const WeatherDetail = ({ music = "" }) => {
           <img
             src={
               todayForecast?.weather?.[0].icon
-                ? `http://openweathermap.org/img/wn/${todayForecast?.weather?.[0].icon}@4x.png`
-                : "http://openweathermap.org/img/wn/03d@4x.png"
+                ? `https://openweathermap.org/img/wn/${todayForecast?.weather?.[0].icon}@4x.png`
+                : "https://openweathermap.org/img/wn/03d@4x.png"
             }
             alt="cloud"
             className=" max-h-[120px] h-fit"
