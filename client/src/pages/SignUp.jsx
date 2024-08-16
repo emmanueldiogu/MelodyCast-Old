@@ -85,16 +85,16 @@ const SignUp = () => {
           </p>
           <div>
             <label
-              htmlFor="username"
+              htmlFor="name"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Your username
+              Your name
             </label>
             <input
               type="text"
-              id="username"
+              id="name"
               className="shadow-sm bg-slate-100 border border-slate-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-              placeholder="enter your username"
+              placeholder="enter your name"
               required
               onChange={handleChange}
             />
